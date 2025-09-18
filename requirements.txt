@@ -1,0 +1,2 @@
+# Python dependencies for Chat Server
+tk
