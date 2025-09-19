@@ -3,7 +3,19 @@ import threading
 
 # Server configuration
 HOST = "127.0.0.1"  # Localhost
-PORT = 55600       # Port for chat server # Setup socket server = socket.socket(socket.AF_INET, socket.SOCK_STREAM) server.bind((HOST, PORT)) server.listen() clients = [] nicknames = [] def broadcast(message: bytes) -> None: """Send message to all connected clients."""
+PORT = 55600        # Port for chat server
+
+# Setup socket
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.bind((HOST, PORT))
+server.listen()
+
+clients = []
+nicknames = []
+
+
+def broadcast(message: bytes) -> None:
+    """Send message to all connected clients."""
     for client in clients:
         client.send(message)
 
